@@ -1,0 +1,81 @@
+header {
+    background: #231f20;
+    padding: 6px 0 3px;
+}
+.explorer_header h4{	
+color:#fff;
+font-size:26px;
+text-align:center;
+font-weight:300;
+padding-top:9px;
+}
+.social_top{
+display:inline-block;    padding-top: 16px;    width: 100%;    text-align: right;
+}
+.social_top li{
+display:inline-block;
+}
+.social_top li img{
+ padding-left:16px;
+height:18px;
+}
+footer{
+background:#000;
+}
+.copy-right{
+	text-align:left;
+}
+.contact-us {
+    width: 100%;
+    padding-top:13px;    text-align: right !important;
+}
+.contact-us a{
+    color:#fff;
+}
+#explorer {
+min-height:530px;
+}
+#explorer .section-1 .card-header{
+ background-color: #00b296!important;
+ }
+ #explorer .table th{
+ font-weight:bold !important;
+ }
+  #explorer .table {
+ margin-bottom:0 !important;
+ }
+ #explorer .bg-secondary {
+    background-color: #093452!important;
+}
+#adv-search .btn{
+border-radius: 0px 5px 5px 0px;  background-color:#00b296;border-color:#00b296;
+ }
+footer{
+	 padding-bottom:12px;color:#fff;
+ }
+ .copy-right{
+ padding-top:15px;
+ }
+ @media(max-width:767px){
+header {
+   text-align:center !important;
+}
+header .text-right{
+   text-align:center !important;
+}	
+.social_top {
+     text-align:center !important;
+} 
+.contact-us {
+    
+    text-align: center !important;
+}
+.copy-right{
+	text-align:center;
+}
+ }
+
+ #adv-search form{
+     width:100%;
+ }
+ .select_coin  {     padding: 60px 30px;	border-radius:7px;	text-align:center;	-webkit-box-shadow:3px 3px 5px 6px #ccc;      -moz-box-shadow:3px 3px 5px 6px #ccc;     box-shadow:3px 3px 5px 6px #ccc;   } .select_coin  label{	font-size:20px;	font-weight:bold;	text-transform:uppercase;	color:#000; }  .select_coin  Select{	font-size:16px;	font-weight:600;	border-color:#9e9e9e;	color:#000; }

@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Escodex</title>
+	<meta charset="utf-8">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="apple-touch-icon" href="images/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" href="images/favicon.ico" />
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/ExplorerEscodex.css" type="text/css" />
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body data-spy="scroll">
+	<header>
+		<div class="container">
+			<div class="explorer_header">
+				<div class="row">
+					<div class="col-md-4 col-lg-4 col-sm-6 col-xl-4 col-xs-12">
+						<div id="logo">
+							<a href="index.html">
+								<img src="images/logo.png" alt="" />
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 col-lg-4 col-sm-6 col-xl-4 col-xs-12">
+						<h4>
+							<span style="color:#03ffd7;">Escodex</span> Explorer</h4>
+					</div>
+					<div class="col-md-4 col-lg-4 col-sm-12 col-xl-4 col-xs-12 text-right text-xs-center">
+						<ul class="social_top">
+							<li>
+								<a href="https://www.facebook.com/EscoDex-197738274287664/">
+									<img src="images/facebook.png" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="http://www.twitter.com">
+									<img src="images/twitter.png" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="https://discord.gg/Sn4d2D">
+									<img src="images/social3.png" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="https://t.me/escodex">
+									<img src="images/socail4.png" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="https://redd.it/8cvcu9">
+									<img src="images/reddit.png" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="https://bitcointalk.org/index.php?topic=3336699.msg34898798#msg34898798">
+									<img src="images/bitcoin.png" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="https://medium.com/@emmajones_27838/welcome-to-escodex-5ed1779102c1">
+									<img src="images/medium.png" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="explorer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-8 col-sm-12 col-xl-8 col-12 offset-md-2 pt-5 section-1">
+							<%if (logo!=null) { %>
+								<div class="row">
+									<div class="col-md-5 col-lg-5 col-sm-5 col-xl-5">
+										<div class="card text-center">
+											<div class="card-header  bg-info text-white">Difficulty</div>
+											<div class="card-body">
+												<p>93223.5410562</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-2 col-lg-2 col-sm-2 col-xl-2">
+										<img src="images/<%= logo %>.png" class="w-100 pt-4" />
+									</div>
+									<div class="col-md-5 col-lg-5 col-sm-5 col-xl-5 text-right ">
+										<div class="card text-center">
+											<div class="card-header  bg-info text-white">Coin Supply (ESCO)</div>
+											<div class="card-body">
+												<p>2224085</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-lg-12 col-sm-12 col-xl-12 text-right pt-5 pb-5">
+										<div class="input-group" id="adv-search">
+											<form method="POST" action="/gettransaction">
+												<div class="row">
+														<div class="col-md-8">
+												<div class="input-group" id="adv-search">
+													<input type="text" class="form-control" name="id" placeholder="Enter tx hash" />
+													
+													<div class="input-group-btn">
+														<div class="btn-group" role="group">
+															<button type="submit" class="btn btn-primary ">
+																<i class="fa fa-search"></i>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<select class="form-control" name="selectpicker">
+													<% for(var i=0; i < cur.length; i++) { %>
+														<option value="<%= cur[i].name %>"><%= cur[i].name %></option>
+													<% } %>
+												</select>
+												</div>
+											</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<% } %>
+				</div>
+			</div>
+			<%if (error!=null) { %>
+				<div class="row">
+					<div class="col-md-12 col-lg-12 col-sm-12 col-xl-12  pb-5">
+						<div class="card-header bg-secondary text-white">Error
+							<h2>
+								<%= error %>
+							</h2>
+						</div>
+					</div>
+				</div>
+				<% } %>
+					<%if (message!=null) { %>
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12 col-xl-12  pb-5">
+								<div class="card text-left">
+									<div class="card-header bg-secondary text-white">ESCO txid:
+										<span>
+											<%= message.txid %>
+										</span>
+									</div>
+									<div class="card-body p-0">
+										<div class="table-responsive">
+											<table class="table table-bordered">
+												<thead>
+													<tr>
+														<th>Confirmations</th>
+														<th>Block Hash</th>
+														<th>Timestamp</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>
+															<%= message.confirmations %>
+														</td>
+														<td style="word-wrap:break-word;">
+															<a href="javascript:0;">
+																<%= message.blockhash %>
+																	</span>
+														</td>
+														<td>
+															<%= message.time %>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-lg-6 col-sm-12 col-xl-6  pb-5">
+								<div class="card text-left">
+									<div class="card-header bg-secondary text-white">Input Addresses</span>
+									</div>
+									<div class="card-body p-0">
+										<div class="table-responsive">
+											<table class="table table-bordered">
+												<thead>
+													<tr>
+														<th>Address</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>
+															<a>
+																<%= message.vout[0].scriptPubKey.addresses %>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="card-footer text-center mt-3">PoS</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6 col-sm-12 col-xl-6 pb-5">
+								<div class="card text-left">
+									<div class="card-header bg-secondary text-white">Recipients</span>
+									</div>
+									<div class="card-body p-0">
+										<div class="table-responsive">
+											<table class="table table-bordered">
+												<thead>
+													<tr>
+														<th>Address</th>
+														<th>Amount (ESCO)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>
+															<a href="javascript:0;">
+																<%= message.vout[1].scriptPubKey.addresses %>
+															</a>
+														</td>
+														<td>
+															<a>
+																<%= message.vout[1].value %>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+		</div>
+	</div>
+	<% } %>
+		</div>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-lg-3 col-sm-4 col-xl-3 ">
+						<div class="copy-right">&copy; EscoDex 2018</div>
+					</div>
+					<div class="col-md-9 col-lg-9 col-sm-8 col-xl-9">
+						<div class="contact-us">
+							<b style="color:#03ffd7;">Contact us at:</b> &nbsp
+							<a href="mailto:emma@escodex.com">
+								<i class="fa  fa-envelope"></i> emma@escodex.com,</a>
+							<a href="mailto:charlie@escodex.com"> charlie@escodex.com</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+</body>
+
+</html>
